@@ -10,13 +10,11 @@ import (
 
 type PropertiesA []struct {
 	History []struct {
-		Timestamp int64  `json:"timestamp"`
-		Value     string `json:"value"`
-	} `json:"history"`
-	Property string `json:"property"`
+		Timestamp int64  `json:"t"`
+		Value     string `json:"v"`
+	} `json:"h"`
+	Property string `json:"p"`
 }
-
-type propertiesB map[string]map[string]string
 
 func makeTimestamp() int64 {
 	return time.Now().UnixNano()
@@ -33,7 +31,7 @@ func main() {
 	var endTime int64
 
 	// load json for struct test
-	raw, err := ioutil.ReadFile("./structFile.json")
+	raw, err := ioutil.ReadFile("structFile.json")
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
@@ -48,9 +46,11 @@ func main() {
 
 	// find in struct
 	for _, element := range objectA {
+
 		if element.Property == findWhat {
 			var highest int64
 			var highestValue string
+
 			for _, v := range element.History {
 				if v.Timestamp > highest {
 					highest = v.Timestamp
@@ -66,38 +66,5 @@ func main() {
 
 	// show first result for struct
 	fmt.Println("STRUCT QUERY TOOK: ", endTime-startTime)
-
-	// load json for map test
-	raw, err = ioutil.ReadFile("./mapFile.json")
-	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
-	}
-
-	// start counting for map
-	startTime = makeTimestamp()
-
-	// find in map
-	for _, element := range objectA {
-
-		if element.Property == findWhat {
-			var highest int64
-			var highestValue string
-			for _, v := range element.History {
-				if v.Timestamp > highest {
-					highest = v.Timestamp
-					highestValue = v.Value
-				}
-			}
-			fmt.Println("MAP QUERY FOUND: ", highestValue)
-		}
-
-	}
-
-	// end counting map
-	endTime = makeTimestamp()
-
-	// show first result for map
-	fmt.Println("MAP QUERY TOOK: ", endTime-startTime)
 
 }

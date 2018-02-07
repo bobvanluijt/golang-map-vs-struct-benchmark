@@ -14,7 +14,7 @@ var objectB = [];
 var history;
 
 // minimum history, maximum history
-var min = 500000;
+var min = 515960;
 var max = 525960;
 
 // amount of props
@@ -36,8 +36,8 @@ function createHistory(){
         returner['a'][h] = string
 
         returner['b'].push({
-            "timestamp": h,
-            "value": string
+            "t": h,
+            "v": string
         })
         
         h++;
@@ -53,12 +53,12 @@ while (n < maxAmountProps) {
     history = createHistory();
 
     // add the history to objectA
-    objectA['prop_' + n] = history['a'];
+    objectA['p_' + n] = history['a'];
     
     // add the history to objectB
     objectB.push({
-        "property": "prop_" + n,
-        "history": history['b']
+        "p": "p_" + n,
+        "h": history['b']
     })
 
     history['a'] = null;
@@ -67,7 +67,7 @@ while (n < maxAmountProps) {
     n++;
 
     if (n == maxAmountProps){
-        console.log("Id to find: ", 'prop_' + (n - 1))
+        console.log("Id to find: ", 'p_' + (n - 1))
     }
 
 }
