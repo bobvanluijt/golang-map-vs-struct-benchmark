@@ -14,11 +14,11 @@ var objectB = [];
 var history;
 
 // minimum history, maximum history
-var min = 1;
-var max = 1100;
+var min = 500000;
+var max = 525960;
 
 // amount of props
-var maxAmountProps = 125000;
+var maxAmountProps = 5;
 
 function createHistory(){
 

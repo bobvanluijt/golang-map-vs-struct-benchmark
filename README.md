@@ -27,9 +27,29 @@ type propertiesB map[string]map[string]string
 
 # Results
 
+General balance history and items (resp: 125000, max 1100):
+
 ```
-STRUCT QUERY FOUND:  3lpes4oqj63f9826vs3sdcxr
-STRUCT QUERY TOOK:  1217000
-INTERFACE QUERY FOUND:  3lpes4oqj63f9826vs3sdcxr
-INTERFACE QUERY TOOK:  1170000
+STRUCT QUERY FOUND: r4qcg9kzfzrexaygedxdvaemi
+STRUCT QUERY TOOK:  1012000 (WIN)
+MAP QUERY FOUND:  	r4qcg9kzfzrexaygedxdvaemi
+MAP QUERY TOOK:  	1288000
+```
+
+Many items, few history items (resp: 100000, max 15):
+
+```
+STRUCT QUERY FOUND: by5a38ok0pw6c6vhw2n265hfr
+STRUCT QUERY TOOK:  12353000
+MAP QUERY FOUND:  	by5a38ok0pw6c6vhw2n265hfr
+MAP QUERY TOOK:  	11555000 (WIN)
+```
+
+Few items, many history items (resp: 5, +/- 525960)
+
+```
+STRUCT QUERY FOUND: dr1h0ok5nj8dxxibbr5mjf9a4i
+STRUCT QUERY TOOK:  974000 (WIN)
+MAP QUERY FOUND:  	dr1h0ok5nj8dxxibbr5mjf9a4i
+MAP QUERY TOOK:  	1984000
 ```
